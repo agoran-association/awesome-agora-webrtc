@@ -1,4 +1,5 @@
 # awesome-agora-webrtc
+> Go to https://agoran-association.github.io/awesome-agora-webrtc/#/ for a try.
 
 ## What's in
 - [x] Basic RTC - Implement basic rtc with advanced options, such as attendee mode, codec, mode, etc.
