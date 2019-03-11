@@ -62,8 +62,8 @@ const filters = [
   "twisted",
   "security"
 ];
-import AgoraRTC from "agora-rtc-sdk";
-import { enhanceStream } from "../utils/AgoraUtils";
+import AgoraRTC from '../utils/AgoraUtils'
+
 export default {
   data() {
     this.filters = filters;
@@ -76,14 +76,12 @@ export default {
   },
   methods: {
     async createStream() {
-      let originStream = enhanceStream(
-        AgoraRTC.createStream({
+      let originStream = AgoraRTC.createStream({
           video: true,
           audio: false,
           screen: false,
           streamID: 4214
         })
-      );
       originStream.setVideoProfile("480p_4");
       await originStream.init();
       return originStream;

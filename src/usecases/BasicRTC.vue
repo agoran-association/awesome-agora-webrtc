@@ -120,8 +120,7 @@
 </template>
 
 <script>
-import AgoraRTC from "agora-rtc-sdk";
-import { enhanceStream, enhanceClient } from "../utils/AgoraUtils";
+import AgoraRTC from '../utils/AgoraUtils'
 export default {
   data() {
     this.logLevels = [
@@ -183,13 +182,10 @@ export default {
         return this.notify("App ID and Channel Name are required!", "error");
       }
       let client, stream;
-      // create enhanced client
-      client = enhanceClient(
-        AgoraRTC.createClient({
+      client = AgoraRTC.createClient({
           mode: this.mode,
           codec: this.codec
         })
-      );
       try {
         // init client and sub events
         this.subClientEvts(client);
@@ -201,9 +197,7 @@ export default {
           Number(this.streamId)
         );
 
-        // create enhanceed stream
-        stream = enhanceStream(
-          AgoraRTC.createStream({
+        stream = AgoraRTC.createStream({
             streamID: assignedId,
             video: Boolean(this.attendeeMode & 0b10),
             audio: Boolean(this.attendeeMode & 0b01),
@@ -211,7 +205,6 @@ export default {
             cameraId: this.cameraId,
             microphoneId: this.microphoneId
           })
-        );
         // if audience
         if (this.attendeeMode !== 0b00) {
           // set video profile and init
