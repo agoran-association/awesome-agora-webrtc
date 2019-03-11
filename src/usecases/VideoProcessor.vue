@@ -85,7 +85,7 @@ export default {
         })
       );
       originStream.setVideoProfile("480p_4");
-      await originStream.$init();
+      await originStream.init();
       return originStream;
     },
 
